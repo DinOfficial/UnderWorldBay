@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:underworld_bay/app/extentions/localization_extention.dart';
 import 'package:underworld_bay/l10n/app_localizations.dart';
-
-import '../../../../app/provider/language_provider.dart';
-import '../../../../app/provider/theme_mode_provider.dart';
+import '../../../../app/providers/language_provider.dart';
+import '../../../../app/providers/theme_mode_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final themeProvider = Provider.of<ThemeModeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).hello),
+        title: Text(context.l10n.hello),
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 8),

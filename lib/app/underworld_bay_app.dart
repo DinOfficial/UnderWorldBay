@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:underworld_bay/app/app_theme.dart';
-import 'package:underworld_bay/app/provider/language_provider.dart';
-import 'package:underworld_bay/app/provider/theme_mode_provider.dart';
+import 'package:underworld_bay/app/providers/language_provider.dart';
+import 'package:underworld_bay/app/providers/theme_mode_provider.dart';
 import 'package:underworld_bay/l10n/app_localizations.dart';
 import '../features/auth/presentation/screens/splash_screen.dart';
 
