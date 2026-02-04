@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
+
 
 class LanguageProvider extends ChangeNotifier {
   Locale _currentLocal = Locale('en');

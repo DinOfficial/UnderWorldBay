@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:underworld_bay/l10n/app_localizations.dart';
+
+import '../../../../app/provider/language_provider.dart';
+import '../../../../app/provider/theme_mode_provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,8 +15,39 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
+    final themeProvider = Provider.of<ThemeModeProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context).hello),),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).hello),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: DropdownMenu(
+              initialSelection: languageProvider.currentLocal,
+              dropdownMenuEntries: languageProvider.supportedLocales
+                  .map((e) => DropdownMenuEntry(value: e, label: e.languageCode))
+                  .toList(),
+              onSelected: (value) {
+                languageProvider.changeLocale(value as Locale);
+              },
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: DropdownMenu(
+              initialSelection: themeProvider.themeMode,
+              dropdownMenuEntries: themeProvider.themeModes
+                  .map((e) => DropdownMenuEntry(value: e, label: e.name))
+                  .toList(),
+              onSelected: (value) {
+                themeProvider.themeModeChange(value as ThemeMode);
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
