@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:underworld_bay/app/app_routes.dart';
 import 'package:underworld_bay/app/app_theme.dart';
 import 'package:underworld_bay/app/providers/language_provider.dart';
 import 'package:underworld_bay/app/providers/theme_mode_provider.dart';
@@ -32,7 +33,8 @@ class UnderWorldBayApp extends StatelessWidget {
             theme: AppTheme.light,
             darkTheme: AppTheme.dark,
             themeMode:themeProvider.themeMode,
-            home: SplashScreen(),
+            initialRoute: '/',
+            onGenerateRoute: AppRoutes.onGenerateRoute,
           );
         },
       ),
