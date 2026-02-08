@@ -3,20 +3,18 @@ import 'package:underworld_bay/app/app_colors.dart';
 import 'package:underworld_bay/app/app_theme.dart';
 import 'package:underworld_bay/app/extentions/localization_extention.dart';
 import 'package:underworld_bay/app/extentions/utils_extention.dart';
-import 'package:underworld_bay/features/auth/presentation/screens/otp_verify_screen.dart';
-import 'package:underworld_bay/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:underworld_bay/features/auth/presentation/widgets/app_logo.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class OtpVerifyScreen extends StatefulWidget {
+  const OtpVerifyScreen({super.key});
 
-  static const String name = '/sign-up';
+  static const String name = '/otp_verify';
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<OtpVerifyScreen> createState() => _OtpVerifyScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
   final TextEditingController _emailTEController = TextEditingController();
   final TextEditingController _firstNameTEController = TextEditingController();
   final TextEditingController _lastNameTEController = TextEditingController();
@@ -86,17 +84,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   const SizedBox(height: 12),
                   FilledButton(
-                    onPressed: _onTapSignUpButton,
+                    onPressed: () {},
                     child: Text(
                       'Sign Up',
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  TextButton(
-                    onPressed: _onTapSignInButton,
-                    child: Text(context.l10n.already_have_account),
-                  ),
+                  const SizedBox(height: 16,),
+                  TextButton(onPressed: (){}, child: Text('Already have an account? Sign in'))
                 ],
               ),
             ),
@@ -106,13 +101,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void _onTapSignUpButton() {
-    Navigator.pushNamed(context, OtpVerifyScreen.name);
-  }
-
-  void _onTapSignInButton() {
-    Navigator.pushNamed(context, SignInScreen.name);
-  }
 
   @override
   void dispose() {

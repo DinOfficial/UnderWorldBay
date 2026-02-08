@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            Expanded(child: AppLogo(height: 120)),
+            Expanded(child: AppLogo(height: 140)),
             CircularProgressIndicator(),
             const SizedBox(height: 12),
             Text('Version 1.0'),

@@ -1,3 +1,14 @@
 {
-"hello":"Hello"
+"signup_with_email":"Sign Up With Email",
+"get_started":"Get started with your details",
+"email":"Email",
+"first_name":"First Name",
+"last_name":"Last Name",
+"phone":"Phone",
+"city":"City",
+"password":"Password",
+"already_have_account": "Already have an account? Sign in",
+"need_an_account" : "Need an account? Sign up",
+"welcome_back":"Welcome Back",
+"sign_in_email_password":"Sign in with your email and password"
 }

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:underworld_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:underworld_bay/features/auth/presentation/screens/splash_screen.dart';
 
+import '../features/auth/presentation/screens/otp_verify_screen.dart';
+import '../features/auth/presentation/screens/sign_in_screen.dart';
+
 class AppRoutes {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     Widget widget = SizedBox();
@@ -12,6 +15,12 @@ class AppRoutes {
         break;
       case SignUpScreen.name:
         widget = const SignUpScreen();
+        break;
+      case SignInScreen.name:
+        widget = const SignInScreen();
+        break;
+      case OtpVerifyScreen.name:
+        widget = const OtpVerifyScreen();
         break;
     }
     return MaterialPageRoute(builder: (context) => widget);
