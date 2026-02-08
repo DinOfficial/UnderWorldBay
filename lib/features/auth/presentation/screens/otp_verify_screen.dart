@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:underworld_bay/app/app_colors.dart';
-import 'package:underworld_bay/app/app_theme.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:underworld_bay/app/extentions/localization_extention.dart';
 import 'package:underworld_bay/app/extentions/utils_extention.dart';
 import 'package:underworld_bay/features/auth/presentation/widgets/app_logo.dart';
@@ -15,12 +14,7 @@ class OtpVerifyScreen extends StatefulWidget {
 }
 
 class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
-  final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _firstNameTEController = TextEditingController();
-  final TextEditingController _lastNameTEController = TextEditingController();
-  final TextEditingController _phoneTEController = TextEditingController();
-  final TextEditingController _cityTEController = TextEditingController();
-  final TextEditingController _passwordTEController = TextEditingController();
+  final TextEditingController _otpTEController = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -41,57 +35,49 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
                   AppLogo(height: 120, width: 120),
                   const SizedBox(height: 28),
                   Text(
-                    context.l10n.signup_with_email,
+                    context.l10n.enter_otp_code,
                     style: context.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    context.l10n.get_started,
+                    context.l10n.six_digit_otp,
                     style: context.textTheme.bodyLarge?.copyWith(color: Colors.grey),
                   ),
                   const SizedBox(height: 8),
-                  TextFormField(
-                    controller: _emailTEController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(hintText: context.l10n.email),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    controller: _firstNameTEController,
-                    decoration: InputDecoration(hintText: context.l10n.first_name),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    controller: _lastNameTEController,
-                    decoration: InputDecoration(hintText: context.l10n.last_name),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    controller: _phoneTEController,
+                  PinCodeTextField(
+                    controller: _otpTEController,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(hintText: context.l10n.phone),
+                    length: 6,
+                    obscureText: false,
+                    animationType: AnimationType.fade,
+                    animationDuration: Duration(milliseconds: 300),
+                    pinTheme: PinTheme(
+                      shape: PinCodeFieldShape.box,
+                      borderRadius: BorderRadius.circular(8),
+                      fieldHeight: 50,
+                      fieldWidth: 50,
+                    ),
+                    appContext: context,
                   ),
                   const SizedBox(height: 8),
-                  TextFormField(
-                    controller: _cityTEController,
-                    decoration: InputDecoration(hintText: context.l10n.city),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    controller: _passwordTEController,
-                    obscureText: true,
-                    decoration: InputDecoration(hintText: context.l10n.password),
-                  ),
-                  const SizedBox(height: 12),
                   FilledButton(
                     onPressed: () {},
                     child: Text(
-                      'Sign Up',
+                      context.l10n.verify,
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ),
-                  const SizedBox(height: 16,),
-                  TextButton(onPressed: (){}, child: Text('Already have an account? Sign in'))
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: .center,
+                    crossAxisAlignment: .center,
+                    children: [
+                      Text('Resend OTP after 120s'),
+                      TextButton(onPressed: () {}, child: Text('Resend')),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  TextButton(onPressed: () {}, child: Text('Already have an account? Sign in')),
                 ],
               ),
             ),
@@ -101,15 +87,9 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
     );
   }
 
-
   @override
   void dispose() {
-    _emailTEController.dispose();
-    _firstNameTEController.dispose();
-    _lastNameTEController.dispose();
-    _phoneTEController.dispose();
-    _cityTEController.dispose();
-    _passwordTEController.dispose();
+    _otpTEController.dispose();
     super.dispose();
   }
 }

@@ -59,7 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   FilledButton(
                     onPressed: () {},
                     child: Text(
-                      'Sign Up',
+                     context.l10n.sign_in,
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ),

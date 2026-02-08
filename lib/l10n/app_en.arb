@@ -10,5 +10,10 @@
 "already_have_account": "Already have an account? Sign in",
 "need_an_account" : "Need an account? Sign up",
 "welcome_back":"Welcome Back",
-"sign_in_email_password":"Sign in with your email and password"
+"sign_in_email_password":"Sign in with your email and password",
+"enter_otp_code":"Enter OTP Code",
+"six_digit_otp":"A six digit otp code has been sent ",
+"sign_in":"Sign In",
+"sign_up":"Sign Up",
+"verify": "Verify"
 }

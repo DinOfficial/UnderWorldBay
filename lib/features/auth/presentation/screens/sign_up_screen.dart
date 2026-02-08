@@ -88,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   FilledButton(
                     onPressed: _onTapSignUpButton,
                     child: Text(
-                      'Sign Up',
+                      context.l10n.sign_up,
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                     ),
                   ),
