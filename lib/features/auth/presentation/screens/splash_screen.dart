@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:underworld_bay/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:underworld_bay/features/shared/presentation/screens/main_nav_holder_screen.dart';
 import '../widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> _moveToNextScreen() async {
     await Future.delayed(Duration(seconds: 2));
-    Navigator.pushReplacementNamed(context, SignUpScreen.name);
+    Navigator.pushReplacementNamed(context, MainNavHolderScreen.name);
   }
 
   @override

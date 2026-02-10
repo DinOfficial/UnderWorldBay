@@ -5,6 +5,8 @@ import 'package:underworld_bay/app/app_routes.dart';
 import 'package:underworld_bay/app/app_theme.dart';
 import 'package:underworld_bay/app/providers/language_provider.dart';
 import 'package:underworld_bay/app/providers/theme_mode_provider.dart';
+import 'package:underworld_bay/features/shared/presentation/providers/main_nav_holder_provider.dart';
+import 'package:underworld_bay/features/shared/presentation/screens/main_nav_holder_screen.dart';
 import 'package:underworld_bay/l10n/app_localizations.dart';
 import '../features/auth/presentation/screens/splash_screen.dart';
 
@@ -17,6 +19,7 @@ class UnderWorldBayApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LanguageProvider()),
         ChangeNotifierProvider(create: (_) => ThemeModeProvider()),
+        ChangeNotifierProvider(create: (_) => MainNavHolderProvider()),
       ],
       child: Consumer2<LanguageProvider, ThemeModeProvider>(
         builder: (context, languageProvider, themeProvider, child) {
@@ -32,7 +35,7 @@ class UnderWorldBayApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: AppTheme.light,
             darkTheme: AppTheme.dark,
-            themeMode:themeProvider.themeMode,
+            themeMode: themeProvider.themeMode,
             initialRoute: '/',
             onGenerateRoute: AppRoutes.onGenerateRoute,
           );

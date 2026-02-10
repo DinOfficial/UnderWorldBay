@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:underworld_bay/app/app_colors.dart';
-import 'package:underworld_bay/app/app_theme.dart';
 import 'package:underworld_bay/app/extentions/localization_extention.dart';
 import 'package:underworld_bay/app/extentions/utils_extention.dart';
 import 'package:underworld_bay/features/auth/presentation/screens/otp_verify_screen.dart';
