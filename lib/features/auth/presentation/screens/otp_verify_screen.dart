@@ -4,6 +4,8 @@ import 'package:underworld_bay/app/extentions/localization_extention.dart';
 import 'package:underworld_bay/app/extentions/utils_extention.dart';
 import 'package:underworld_bay/features/auth/presentation/widgets/app_logo.dart';
 
+import '../widgets/resend_otp_section.dart';
+
 class OtpVerifyScreen extends StatefulWidget {
   const OtpVerifyScreen({super.key});
 
@@ -68,14 +70,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: .center,
-                    crossAxisAlignment: .center,
-                    children: [
-                      Text('Resend OTP after 120s'),
-                      TextButton(onPressed: () {}, child: Text('Resend')),
-                    ],
-                  ),
+                  ResendOtpSection(),
                   const SizedBox(height: 12),
                   TextButton(onPressed: () {}, child: Text('Already have an account? Sign in')),
                 ],
