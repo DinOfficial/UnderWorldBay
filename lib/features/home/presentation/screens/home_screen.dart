@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:underworld_bay/app/assets_path.dart';
 
+import '../widgets/app_bar_action_icon.dart';
+import '../widgets/product_search_bar.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -17,38 +20,21 @@ class _HomeScreenState extends State<HomeScreen> {
         title: SvgPicture.asset(AssetsPath.navSvgLogo),
         backgroundColor: Colors.white,
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey.withAlpha(50),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.person_outline, color: Colors.black54),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey.withAlpha(50),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.phone_outlined, color: Colors.black54),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: CircleAvatar(
-              backgroundColor: Colors.grey.withAlpha(50),
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.notifications_active_outlined, color: Colors.black54),
-              ),
-            ),
-          ),
+          AppBarActionIcon(icon: Icons.person_outline, onTap: () {}),
+          AppBarActionIcon(icon: Icons.phone_outlined, onTap: () {}),
+          AppBarActionIcon(icon: Icons.notifications_active_outlined, onTap: () {}),
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+        child: Column(
+          children: [
+            ProductSearchBar(),
+          ],
+        ),
       ),
     );
   }
 }
+
+
