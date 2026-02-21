@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:underworld_bay/app/assets_path.dart';
 
 import '../widgets/app_bar_action_icon.dart';
+import '../widgets/home_slider.dart';
 import '../widgets/product_search_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,14 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
-        child: Column(
-          children: [
-            ProductSearchBar(),
-          ],
-        ),
+        child: Column(children: [
+          ProductSearchBar(),
+          const SizedBox(height: 12),
+          HomeSlider(),
+        ]),
       ),
     );
   }
 }
-
-
