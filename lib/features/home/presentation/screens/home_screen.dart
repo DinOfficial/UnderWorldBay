@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:underworld_bay/app/assets_path.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../app/assets_path.dart';
+import '../../../shared/presentation/providers/main_nav_holder_provider.dart';
 import '../widgets/app_bar_action_icon.dart';
 import '../widgets/home_slider.dart';
 import '../widgets/product_search_bar.dart';
+import '../widgets/section_header.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -28,11 +31,22 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
-        child: Column(children: [
-          ProductSearchBar(),
-          const SizedBox(height: 12),
-          HomeSlider(),
-        ]),
+        child: Column(
+          children: [
+            ProductSearchBar(),
+            const SizedBox(height: 12),
+            HomeSlider(),
+            const SizedBox(height: 16),
+            SectionHeader(
+              name: 'All Categories',
+              onTapSeeAll: () {
+                context.read<MainNavHolderProvider>().updateIndex(1);
+              },
+            ),
+            const SizedBox(height: 12,),
+
+          ],
+        ),
       ),
     );
   }
