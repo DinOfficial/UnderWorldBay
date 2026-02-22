@@ -7,6 +7,7 @@ import '../../../shared/presentation/providers/main_nav_holder_provider.dart';
 import '../../../shared/presentation/widgets/home_category_list.dart';
 import '../widgets/app_bar_action_icon.dart';
 import '../widgets/home_slider.dart';
+import '../widgets/product_card.dart';
 import '../widgets/product_search_bar.dart';
 import '../widgets/section_header.dart';
 
@@ -39,29 +40,21 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 12),
             HomeCategoryList(),
             const SizedBox(height: 12),
-            SectionHeader(
-              name: 'Popular',
-              onTapSeeAll: () {},
-            ),
+            SectionHeader(name: 'Popular', onTapSeeAll: () {}),
             const SizedBox(height: 12),
-            Card(
-              child: SizedBox(
-                width: 140,
-                height: 120,
-                child: Column(
-                  children: [
-                    Container(
-                      width: 140,
-                      height: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: .only(topLeft: .circular(8), topRight: .circular(8))
-                      ),
-                      child: Image.asset(AssetsPath.dummyProductImg, fit: .scaleDown,),
-                    )
-                  ],
-                ),
+            SizedBox(
+              height: 220,
+              child: ListView.separated(
+                scrollDirection: .horizontal ,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return ProductCard();
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(width: 12);
+                },
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -80,4 +73,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

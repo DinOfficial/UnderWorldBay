@@ -19,7 +19,7 @@ class HomeCategoryList extends StatelessWidget {
           return CategoriesCard();
         },
         separatorBuilder: (_, _) {
-          return const SizedBox(width: 12);
+          return const SizedBox(width: 28);
         },
       ),
     );
