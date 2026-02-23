@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:underworld_bay/app/app_colors.dart';
+import 'package:underworld_bay/features/category/presentation/screens/categories_screen.dart';
 import 'package:underworld_bay/features/home/presentation/screens/home_screen.dart';
 import 'package:underworld_bay/features/shared/presentation/providers/main_nav_holder_provider.dart';
 
@@ -14,7 +15,7 @@ class MainNavHolderScreen extends StatefulWidget {
 }
 
 class _MainNavHolderScreenState extends State<MainNavHolderScreen> {
-  final List<Widget> _screens = [HomeScreen(), SizedBox(), SizedBox(), SizedBox()];
+  final List<Widget> _screens = [HomeScreen(), CategoriesScreen(), SizedBox(), SizedBox()];
 
   @override
   Widget build(BuildContext context) {

@@ -9,4 +9,5 @@ class MainNavHolderProvider extends ChangeNotifier {
     _currentIndex = index;
     notifyListeners();
   }
+
 }
