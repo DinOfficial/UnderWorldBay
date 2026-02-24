@@ -10,4 +10,11 @@ class MainNavHolderProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void backToHome() {
+    updateIndex(0);
+  }
+
+  void moveToCategory() {
+    updateIndex(1);
+  }
 }
