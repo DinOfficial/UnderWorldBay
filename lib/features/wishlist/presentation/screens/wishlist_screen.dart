@@ -17,7 +17,7 @@ class _WishListScreenState extends State<WishListScreen> {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (_, __) {
+      onPopInvokedWithResult: (_, _) {
         _onTapBackButton();
       },
       child: Scaffold(
@@ -30,16 +30,13 @@ class _WishListScreenState extends State<WishListScreen> {
           title: Text('Wishlist'),
         ),
         body: GridView.builder(
-          itemCount: 40,
+          itemCount: 10,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            mainAxisSpacing:8,
-            crossAxisSpacing:8,
+            mainAxisSpacing: 8
           ),
           itemBuilder: (context, index) {
-            return FittedBox(
-                child: ProductCard()
-            );
+            return FittedBox(child: ProductCard());
           },
         ),
       ),

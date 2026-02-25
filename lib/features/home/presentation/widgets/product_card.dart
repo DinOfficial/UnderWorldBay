@@ -14,13 +14,13 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 140,
+      width: 160,
       child: Card(
         color: Colors.white,
         child: Column(
           children: [
             Container(
-              width: 140,
+              width: 160,
               padding: .all(12),
               decoration: BoxDecoration(
                 color: AppColors.themeColor.withAlpha(30),
