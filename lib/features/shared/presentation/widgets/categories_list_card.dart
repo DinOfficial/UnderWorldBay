@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:underworld_bay/features/products/presentation/screens/product_list_screen.dart';
 
@@ -11,8 +10,8 @@ class CategoriesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.pushNamed(context, ProductListScreen.name);
+      onTap: () {
+        Navigator.pushNamed(context, ProductListScreen.name, arguments: 'Electronics');
       },
       child: Column(
         children: [

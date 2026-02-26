@@ -4,6 +4,7 @@ import 'package:underworld_bay/features/auth/presentation/screens/splash_screen.
 
 import '../features/auth/presentation/screens/otp_verify_screen.dart';
 import '../features/auth/presentation/screens/sign_in_screen.dart';
+import '../features/products/presentation/screens/product_details_screen.dart';
 import '../features/products/presentation/screens/product_list_screen.dart';
 import '../features/shared/presentation/screens/main_nav_holder_screen.dart';
 
@@ -30,6 +31,9 @@ class AppRoutes {
       case ProductListScreen.name:
         final categoryName = settings.arguments as String;
         widget = ProductListScreen(categoryName: categoryName);
+        break;
+      case ProductDetailsScreen.name:
+        widget = ProductDetailsScreen();
         break;
     }
     return MaterialPageRoute(builder: (context) => widget);
