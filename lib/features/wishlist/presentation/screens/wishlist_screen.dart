@@ -33,8 +33,7 @@ class _WishListScreenState extends State<WishListScreen> {
           itemCount: 40,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            mainAxisSpacing:8,
-            crossAxisSpacing:8,
+            mainAxisSpacing: 12
           ),
           itemBuilder: (context, index) {
             return FittedBox(

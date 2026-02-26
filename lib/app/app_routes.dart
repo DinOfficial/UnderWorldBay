@@ -4,6 +4,7 @@ import 'package:underworld_bay/features/auth/presentation/screens/splash_screen.
 
 import '../features/auth/presentation/screens/otp_verify_screen.dart';
 import '../features/auth/presentation/screens/sign_in_screen.dart';
+import '../features/products/presentation/screens/product_list_screen.dart';
 import '../features/shared/presentation/screens/main_nav_holder_screen.dart';
 
 class AppRoutes {
@@ -14,7 +15,7 @@ class AppRoutes {
       case SplashScreen.name:
         widget = const SplashScreen();
         break;
-        case MainNavHolderScreen.name:
+      case MainNavHolderScreen.name:
         widget = const MainNavHolderScreen();
         break;
       case SignUpScreen.name:
@@ -25,6 +26,10 @@ class AppRoutes {
         break;
       case OtpVerifyScreen.name:
         widget = const OtpVerifyScreen();
+        break;
+      case ProductListScreen.name:
+        final categoryName = settings.arguments as String;
+        widget = ProductListScreen(categoryName: categoryName);
         break;
     }
     return MaterialPageRoute(builder: (context) => widget);
