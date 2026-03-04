@@ -1,7 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../app/app_colors.dart';
 import '../widgets/price_and_add_to_cart_section.dart';
 import '../widgets/product_details_carousel.dart';
 
@@ -21,7 +19,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       appBar: AppBar(backgroundColor: Colors.white, title: Text('Product Details')),
       body: Column(
         children: [
-          Expanded(child: Column(children: [ProductDetailsCarousel()])),
+          Expanded(child: Column(
+              children: [
+            ProductDetailsCarousel(),
+              Row(
+                children: [
+
+                ],
+              )
+              ]
+
+          )),
           PriceAndAddToCartSection(price: 1000, onTapAddToCart: () {}),
         ],
       ),
