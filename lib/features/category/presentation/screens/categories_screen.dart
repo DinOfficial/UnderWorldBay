@@ -24,7 +24,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           backgroundColor: Colors.white,
           leading: IconButton(
             onPressed: context.read<MainNavHolderProvider>().backToHome,
-            icon: Icon(Icons.arrow_back_ios_new_rounded),
+            icon: Icon(Icons.arrow_back),
           ),
           title: Text('Categories'),
         ),
