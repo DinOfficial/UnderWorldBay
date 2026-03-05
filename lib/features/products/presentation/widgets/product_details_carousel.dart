@@ -6,14 +6,13 @@ import '../../../../app/app_colors.dart';
 class ProductDetailsCarousel extends StatefulWidget {
   const ProductDetailsCarousel({super.key});
 
-
   @override
   State<ProductDetailsCarousel> createState() => _ProductDetailsCarouselState();
 }
 
 class _ProductDetailsCarouselState extends State<ProductDetailsCarousel> {
-
   final ValueNotifier<int> _currentIndex = ValueNotifier<int>(0);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -33,7 +32,7 @@ class _ProductDetailsCarouselState extends State<ProductDetailsCarousel> {
                 return Container(
                   width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(color: Colors.grey.withAlpha(50), borderRadius: .circular(8)),
+                  decoration: BoxDecoration(color: Colors.grey.withAlpha(50)),
                   child: Center(child: Text('text $i', style: TextStyle(fontSize: 16.0))),
                 );
               },
@@ -42,7 +41,7 @@ class _ProductDetailsCarouselState extends State<ProductDetailsCarousel> {
         ),
         Positioned(
           bottom: 10,
-          left: MediaQuery.sizeOf(context).width *.425,
+          left: MediaQuery.sizeOf(context).width * .425,
           child: ValueListenableBuilder(
             valueListenable: _currentIndex,
             builder: (context, value, child) {
