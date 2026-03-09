@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:underworld_bay/app/app_colors.dart';
 
 class IncDecButton extends StatefulWidget {
-  const IncDecButton({super.key, this.width = 100, required this.onChange});
+  const IncDecButton({super.key, this.width = 80, required this.onChange});
 
   final double width;
   final Function(int) onChange;
@@ -41,7 +41,7 @@ class _IncDecButtonState extends State<IncDecButton> {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(color: AppColors.themeColor, borderRadius: .circular(4)),
-        child: Padding(padding: const EdgeInsets.all(4), child: Icon(icon)),
+        child: Padding(padding: const EdgeInsets.all(4), child: Icon(icon,size: 16,)),
       ),
     );
   }
