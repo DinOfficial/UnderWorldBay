@@ -31,8 +31,9 @@ class _CartScreenState extends State<CartScreen> {
           title: Text('Cart'),
         ),
         body: SingleChildScrollView(
+          padding: EdgeInsets.all(8),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 1,
+            height: MediaQuery.of(context).size.height * .78,
             child: ListView.separated(
               itemCount: 10,
               itemBuilder: (context, index) => Card(
