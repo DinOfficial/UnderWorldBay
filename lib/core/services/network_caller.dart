@@ -3,10 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
+part '../models/network_response.dart';
 
 class NetWorkCaller {
   final Map<String, String> headers;
   final VoidCallback onUnauthorized;
+
+  final Logger _logger = Logger();
 
   NetWorkCaller({required this.headers, required this.onUnauthorized});
 
@@ -14,7 +18,7 @@ class NetWorkCaller {
   Future<NetworkResponse> getRequest(String url) async {
     try {
       Uri uri = Uri.parse(url);
-      _logRequest(url);
+      _logger.i(url);
 
       final response = await http.get(uri, headers: headers);
       _logResponse(url, response);
@@ -36,7 +40,7 @@ class NetWorkCaller {
         return NetworkResponse(
           isSuccess: false,
           responseCode: response.statusCode,
-          errorMessage: decodedResponse['body'],
+          errorMessage: decodedResponse['body'], // TODO: dynamic response
         );
       }
     } catch (e) {
@@ -55,7 +59,7 @@ class NetWorkCaller {
   }) async {
     try {
       Uri uri = Uri.parse(url);
-      _logRequest(url);
+      _logger.i(url);
       final response = await http.post(
         uri,
         headers: headers,
@@ -85,7 +89,7 @@ class NetWorkCaller {
         );
       }
     } catch (e) {
-      debugPrint(e.toString());
+      _logger.e(e.toString());
       return NetworkResponse(
         isSuccess: false,
         responseCode: -1,
@@ -95,28 +99,14 @@ class NetWorkCaller {
   }
 
   void _logRequest(String url) {
-    debugPrint('Request: $url');
+   _logger.i('Request: $url');
   }
 
   void _logResponse(String url, dynamic response) {
-    debugPrint(
+    _logger.i(
       'Url: $url\n'
       'Response: ${response.statusCode}\n'
       'Body: ${response.body}',
     );
   }
-}
-
-class NetworkResponse {
-  final bool isSuccess;
-  final int responseCode;
-  final dynamic body;
-  final String? errorMessage;
-
-  NetworkResponse({
-    required this.isSuccess,
-    required this.responseCode,
-    this.body,
-    this.errorMessage,
-  });
 }
