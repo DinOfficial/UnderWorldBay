@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:underworld_bay/app/underworld_bay_app.dart';
-import 'package:underworld_bay/core/services/network_caller.dart';
-import 'package:underworld_bay/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:flutter/material.dart';
+
+import '../app/underworld_bay_app.dart';
+import '../core/services/network_caller.dart';
+import '../features/auth/presentation/screens/otp_verify_screen.dart';
 
 NetWorkCaller getNetworkCaller() {
   return NetWorkCaller(
@@ -15,6 +16,6 @@ NetWorkCaller getNetworkCaller() {
 void _moveToSignInScreen() {
   Navigator.pushNamed(
     UnderWorldBayApp.navigatorKey.currentContext!,
-    SignInScreen.name,
+    OtpVerifyScreen.name,
   );
 }
