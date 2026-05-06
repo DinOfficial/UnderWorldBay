@@ -13,6 +13,8 @@ import '../features/auth/presentation/screens/splash_screen.dart';
 class UnderWorldBayApp extends StatelessWidget {
   const UnderWorldBayApp({super.key});
 
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -24,6 +26,7 @@ class UnderWorldBayApp extends StatelessWidget {
       child: Consumer2<LanguageProvider, ThemeModeProvider>(
         builder: (context, languageProvider, themeProvider, child) {
           return MaterialApp(
+            navigatorKey: navigatorKey,
             localizationsDelegates: [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
